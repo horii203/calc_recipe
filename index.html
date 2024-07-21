@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>レシピの分量計算アプリ</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>分量計算</h1>
+      <div
+        v-for="(ingredient, index) in ingredients"
+        :key="index"
+        class="ingredient-item"
+      >
+        <!-- 材料名 -->
+        <label :for="'ingredient-name-' + index">材料名 {{ index + 1 }}:</label>
+        <input
+          v-model="ingredient.name"
+          :id="'ingredient-name-' + index"
+          type="text"
+          placeholder="材料名を入力"
+        />
+        <!-- 分量 -->
+        <label :for="'ingredient-amount-' + index">分量:</label>
+        <input
+          v-model="ingredient.amount"
+          :id="'ingredient-amount-' + index"
+          type="text"
+          placeholder="分量を入力"
+        />
+        <button @click="removeIngredient(index)" v-if="index > 0">削除</button>
+      </div>
+      <button @click="addIngredient">＋ 材料を追加</button>
+
+      <!-- 人数 -->
+      <label for="num-people">元の人数:</label>
+      <input v-model.number="numPeople" id="num-people" type="number" min="1" />
+
+      <label for="calc-people">計算したい人数:</label>
+      <input
+        v-model.number="calcPeople"
+        id="calc-people"
+        type="number"
+        min="1"
+      />
+
+      <!-- 結果 -->
+      <div v-if="numPeople > 0 && calcPeople > 0">
+        <h2>{{ calcPeople }}人分の分量</h2>
+        <div v-for="(ingredient, index) in ingredients" :key="index">
+          <div v-if="ingredient.name.trim() !== ''">
+            <span>{{ ingredient.name }}:</span>
+            <span>{{ calculateAmount(ingredient.amount) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="assets/index.js"></script>
+  </body>
+</html>
