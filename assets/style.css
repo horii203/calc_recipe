@@ -1,12 +1,132 @@
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
+  margin: 0;
+  background-color: #fff9ef;
 }
 
 input {
-  margin: 5px;
+  border: none;
 }
 
-button {
-  margin-top: 10px;
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #fff inset !important;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+header {
+  background-color: #ff9447;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.ingredient-wrap, .ingredient-wrap-02 {
+  width: 500px;
+  background-color: #fff;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  margin: 100px auto 0;
+  padding: 50px 30px;
+  position: relative;
+}
+.ingredient-wrap-02 {
+  position: relative;
+}
+.ingredient-wrap-02 .text {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background-color: #ff9447;
+  color: #fff;
+  padding: 5px 30px;
+  border-radius: 50px;
+}
+.ingredient-wrap-02 .text:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  border: 5px solid transparent;
+  border-top: 8px solid #ff9447;
+}
+
+.ingredient-item {
+  position: relative;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  padding: 10px 0;
+  justify-content: space-between;
+  border-bottom: solid 1px #66451f;
+}
+
+.tape {
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  background: repeating-linear-gradient(-45deg, #cdf9ff, #cdf9ff 10px, #fff 0, #fff 20px);
+  color: #66451f;
+}
+
+.tape2 {
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  background-image: radial-gradient(#ffcdf4 30%, transparent 30%), radial-gradient(#ffcdf4 30%, transparent 30%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  background-repeat: repeat;
+  background-color: white;
+}
+
+.delete {
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #e7e7e7;
+}
+.delete span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  display: block;
+  height: 1px;
+  background-color: #66451f;
+}
+.delete span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.delete span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.addBtn {
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  width: 300px;
+  background-color: #e7e7e7;
+  padding: 5px;
+  border: none;
+  color: #66451f;
+}
+
+.people {
+  text-align: center;
+  margin-top: 50px;
+}
+.people input {
+  width: 30px;
+  padding: 5px;
 }/*# sourceMappingURL=style.css.map */
