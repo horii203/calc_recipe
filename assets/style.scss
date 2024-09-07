@@ -1,105 +1,130 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
   margin: 0;
   background-color: #fff9ef;
+  font-family: Arial, sans-serif;
 }
 input {
   border: none;
-}
-input:-webkit-autofill {
-  box-shadow: 0 0 0 1000px #fff inset !important;
 }
 h1,
 p {
   margin: 0;
 }
 header {
-  background-color: #ff9447;
-  color: #fff;
   padding: 10px 20px;
+  background-color: #ff9447;
+  color: #ffffff;
+}
+main {
+  padding: 100px 0;
+}
+.title {
+  font-size: 30px;
+  @media only screen and (max-width: 600px) {
+    font-size: calc(60 / 750 * 100vw);
+  }
 }
 .ingredient-wrap {
-  width: 500px;
-  background-color: #fff;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  margin: 100px auto 0;
-  padding: 50px 30px;
   position: relative;
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px 30px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  @media only screen and (max-width: 600px) {
+    width: calc(600 / 750 * 100vw);
+    padding: calc(50 / 750 * 100vw) calc(30 / 750 * 100vw);
+  }
   &-02 {
     @extend .ingredient-wrap;
-    position: relative;
     .text {
       position: absolute;
       top: -50px;
       left: 0;
-      background-color: #ff9447;
-      color: #fff;
       padding: 5px 30px;
       border-radius: 50px;
+      background-color: #ff9447;
+      color: #ffffff;
+      font-size: 16px;
+      @media only screen and (max-width: 600px) {
+        font-size: calc(28 / 750 * 100vw);
+      }
       &:before {
-        content: "";
         position: absolute;
         top: 100%;
         left: 20%;
         border: 5px solid transparent;
         border-top: 8px solid #ff9447;
+        content: "";
       }
     }
   }
 }
 .ingredient-item {
-  position: relative;
-  gap: 20px;
   display: grid;
-  grid-template-columns: 1fr auto auto;
-  padding: 10px 0;
   justify-content: space-between;
+  position: relative;
+  padding: 10px 0;
   border-bottom: solid 1px #66451f;
+
+  grid-template-columns: auto auto auto;
+  @media only screen and (max-width: 600px) {
+    input {
+      max-width: calc(250 / 750 * 100vw);
+    }
+  }
 }
 .tape {
-  width: 150px;
-  height: 30px;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-10deg);
+  width: 150px;
+  height: 30px;
   background: repeating-linear-gradient(
     -45deg,
     #cdf9ff,
     #cdf9ff 10px,
-    #fff 0,
-    #fff 20px
+    #ffffff 0,
+    #ffffff 20px
   );
   color: #66451f;
+  @media only screen and (max-width: 600px) {
+    width: calc(200 / 750 * 100vw);
+    height: calc(40 / 750 * 100vw);
+  }
 }
 .tape2 {
-  width: 150px;
-  height: 30px;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-10deg);
+  width: 150px;
+  height: 30px;
   background-image: radial-gradient(#ffcdf4 30%, transparent 30%),
     radial-gradient(#ffcdf4 30%, transparent 30%);
-  background-size: 16px 16px;
   background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
   background-repeat: repeat;
   background-color: white;
+  @media only screen and (max-width: 600px) {
+    width: calc(200 / 750 * 100vw);
+    height: calc(40 / 750 * 100vw);
+  }
 }
 .delete {
-  cursor: pointer;
   position: relative;
   width: 20px;
   height: 20px;
   background-color: #e7e7e7;
+  cursor: pointer;
 
   span {
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 15px;
-    display: block;
     height: 1px;
     background-color: #66451f;
     &:first-child {
@@ -112,19 +137,25 @@ header {
 }
 
 .addBtn {
-  cursor: pointer;
   display: block;
-  margin: 30px auto 0;
   width: 300px;
-  background-color: #e7e7e7;
+  margin: 30px auto 0;
   padding: 5px;
   border: none;
+  background-color: #e7e7e7;
   color: #66451f;
+  cursor: pointer;
+  @media only screen and (max-width: 600px) {
+    width: calc(300 / 750 * 100vw);
+  }
 }
 
 .people {
+  margin: 50px 0 80px;
   text-align: center;
-  margin-top: 50px;
+  @media only screen and (max-width: 600px) {
+    margin: calc(50 / 750 * 100vw) 0 calc(150 / 750 * 100vw);
+  }
   input {
     width: 30px;
     padding: 5px;

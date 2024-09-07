@@ -4,65 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>分量計算</title>
+    <meta
+      name="description"
+      content="レシピの分量を人数に合わせて簡単に計算できます。"
+    />
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
     <header>
-      <h1>分量計算</h1>
+      <h1 class="title">分量計算</h1>
     </header>
-    <div id="app">
-      <div class="ingredient-wrap">
-        <div class="tape"></div>
-        <div
-          v-for="(ingredient, index) in ingredients"
-          :key="index"
-          class="ingredient-item"
-        >
-          <!-- 材料名 -->
-          <input
-            v-model="ingredient.name"
-            :id="'ingredient-name-' + index"
-            type="text"
-            placeholder="材料名を入力"
-          />
-          <!-- 分量 -->
-          <input
-            v-model="ingredient.amount"
-            :id="'ingredient-amount-' + index"
-            type="text"
-            placeholder="分量を入力"
-          />
-          <div @click="removeIngredient(index)" class="delete">
-            <span></span>
-            <span></span>
+    <main>
+      <div id="app">
+        <div class="ingredient-wrap">
+          <div class="tape"></div>
+          <div
+            v-for="(ingredient, index) in ingredients"
+            :key="index"
+            class="ingredient-item"
+          >
+            <!-- 材料名 -->
+            <input
+              v-model="ingredient.name"
+              :id="'ingredient-name-' + index"
+              type="text"
+              placeholder="材料名を入力"
+            />
+            <!-- 分量 -->
+            <input
+              v-model="ingredient.amount"
+              :id="'ingredient-amount-' + index"
+              type="text"
+              placeholder="分量を入力"
+            />
+            <div @click="removeIngredient(index)" class="delete">
+              <span></span>
+              <span></span>
+            </div>
           </div>
+          <button @click="addIngredient" class="addBtn">＋ 材料を追加</button>
         </div>
-        <button @click="addIngredient" class="addBtn">＋ 材料を追加</button>
-      </div>
 
-      <!-- 人数 -->
-      <p class="people">
-        <input
-          v-model.number="numPeople"
-          id="num-people"
-          type="number"
-          min="1"
-          max="10"
-        />
-        人分を
-        <input
-          v-model.number="calcPeople"
-          id="calc-people"
-          type="number"
-          min="1"
-          max="10"
-        />
-        人分に計算
-      </p>
+        <!-- 人数 -->
+        <p class="people">
+          <input
+            v-model.number="numPeople"
+            id="num-people"
+            type="number"
+            min="1"
+            max="10"
+          />
+          人分を
+          <input
+            v-model.number="calcPeople"
+            id="calc-people"
+            type="number"
+            min="1"
+            max="10"
+          />
+          人分に計算
+        </p>
 
-      <!-- 結果 -->
-      <div v-if="numPeople > 0 && calcPeople > 0">
-        <div class="ingredient-wrap-02">
+        <!-- 結果 -->
+        <div class="ingredient-wrap-02" v-if="numPeople > 0 && calcPeople > 0">
           <div class="text"><p>計算結果</p></div>
           <div class="tape2"></div>
           <h2>{{ calcPeople }}人分の分量</h2>
@@ -74,7 +78,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="assets/index.js"></script>

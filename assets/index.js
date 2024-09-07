@@ -2,9 +2,9 @@ new Vue({
   el: "#app",
   data: {
     ingredients: [
-      { name: "", amount: "" },
-      { name: "", amount: "" },
-      { name: "", amount: "" },
+      { name: "", amount: "", unit: "" },
+      { name: "", amount: "", unit: "" },
+      { name: "", amount: "", unit: "" },
     ],
     numPeople: 4,
     calcPeople: 1,
@@ -12,7 +12,7 @@ new Vue({
   methods: {
     // 材料項目追加
     addIngredient() {
-      this.ingredients.push({ name: "", amount: "" });
+      this.ingredients.push({ name: "", amount: "", unit: "" });
     },
     // 項目削除
     removeIngredient(index) {
